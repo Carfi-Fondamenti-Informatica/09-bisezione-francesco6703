@@ -34,10 +34,14 @@ int main() {
     float a, b;
     float tolleranza = 1e-6;  
 
-    cout << "inserire estremi\n";
+    cout << "inserire estremi";
     cin >> a;
     cin >> b;
-
+	while(f(a)*f(b)>0)
+	{
+		cin >> a;
+        cin >> b;
+	}
     float radice = bisezione(a, b, tolleranza);
 
     cout << radice << endl;
