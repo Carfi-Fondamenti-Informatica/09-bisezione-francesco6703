@@ -1,44 +1,47 @@
 #include <iostream>
 #include <cmath>
+
 using namespace std;
 
-int main(){
-	float a, b, fa, fb, x, fx;
-	cout << "inserire estremi\n"; 
-	cin >> a;
-	cin >> b;
-	fa=a*a*(cos(a))+1;
-	fb=b*b*(cos(b))+1;
-	
-	while(fa*fb>=0)
-	{
-		cin >> a;
-		cin >> b;
-		fa=a*a*cos(a)+1;
-		fb=b*b*cos(b)+1;
-	}
+float f(float y) {
+    return y * y * cos(y) + 1;
+}
 
-	
-	x=a;
-	a=(a+b)/2;
-	fa=a*a*cos(a)+1;
-	do{
-	if (fa*fb>0)
-	{
-		a=x;
-		fa=a*a*cos(a)+1;
-		b=(a+b)/2;
-		fb=b*b*cos(b)+1;
-	}
-	else
-	{
-		x=a;
-		a=(a+b)/2;
-		fa=a*a*cos(a)+1;
-	}
-	}while (fa>0.1 && fa<-0.1 || fb>0.1 && fb<-0.1);
-	cout << a << "\n";
-	cout.precision(4);
-	cout << fa;
-    
+float bisezione(float a, float b, float tolleranza) {
+    float c;
+
+    while (fabs(b - a) > tolleranza) {
+        c = (a + b) / 2;  
+
+        if (f(c) == 0)
+        {
+        	return c;
+		}
+        else if (f(c) * f(a) < 0)
+        {
+        	b=c;
+		}
+        else
+        {
+        	a=c;
+		}
+    }
+
+    return (a + b) / 2;  
+}
+
+int main() {
+    float a, b;
+    float tolleranza = 1e-6;  
+
+    cout << "inserire estremi\n";
+    cin >> a;
+    cin >> b;
+
+    float radice = bisezione(a, b, tolleranza);
+
+    cout << radice << endl;
+    cout << f(radice);
+
+    return 0;
 }
