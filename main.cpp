@@ -3,12 +3,12 @@
 
 using namespace std;
 
-float f(float y) {
+double f(double y) {
     return y * y * cos(y) + 1;
 }
 
-float bisezione(float a, float b, float tolleranza) {
-    float c;
+double bisezione(double a, double b, double tolleranza) {
+    double c;
 
     while (fabs(b - a) > tolleranza) {
         c = (a + b) / 2;  
@@ -31,8 +31,8 @@ float bisezione(float a, float b, float tolleranza) {
 }
 
 int main() {
-    float a, b;
-    float tolleranza = 1e-6;  
+    double a, b;
+    double tolleranza = 1e-6;  
 
     cout << "inserire estremi";
     cin >> a;
@@ -42,7 +42,7 @@ int main() {
 		cin >> a;
         cin >> b;
 	}
-    float radice = bisezione(a, b, tolleranza);
+    double radice = bisezione(a, b, tolleranza);
 
     cout << radice << endl;
     cout << f(radice);
