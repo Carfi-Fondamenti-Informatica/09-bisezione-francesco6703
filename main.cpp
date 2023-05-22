@@ -30,6 +30,7 @@ float bisezione(float a,float b, float err)
 		}
 	n=n+1;
 }
+	return c;
 }
 
 
