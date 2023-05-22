@@ -3,21 +3,24 @@
 
 using namespace std;
 
-double f(double y) {
+float f(float y) {
     return y * y * cos(y) + 1;
 }
 
-double bisezione(double a, double b, double tolleranza) {
-    double c;
-
-    while (fabs(b - a) > tolleranza) {
-        c = (a + b) / 2;  
-
-        if (f(c) == 0)
-        {
-        	return c;
-		}
-        else if (f(c) * f(a) < 0)
+float bisezione(float a,float b, float err)
+{
+	float c;
+	int i; 
+	int n=0;
+	
+ while(n <= i)
+{
+	c = (a + b)/2; 
+  	if (f(c) == 0 || (b-a)/2 < err )
+  	{
+  		return c;
+  	}
+  	else if (f(c)*f(a) < 0)
         {
         	b=c;
 		}
@@ -25,15 +28,17 @@ double bisezione(double a, double b, double tolleranza) {
         {
         	a=c;
 		}
-    }
-
-    return (a + b) / 2;  
+	n=n+1;
+}
 }
 
-int main() {
-    double a, b;
-    double tolleranza = 1e-6;  
 
+
+int main() {
+    float a, b;
+    double err = 1e-6;  
+    int i;
+	cin >> i; 
     cout << "inserire estremi";
     cin >> a;
     cin >> b;
@@ -42,10 +47,9 @@ int main() {
 		cin >> a;
         cin >> b;
 	}
-    double radice = bisezione(a, b, tolleranza);
-    
-    cout << radice << endl;
-    cout.precision(4);
+    float radice = bisezione(a, b, err);
+	cout.precision(4);
+    cout << radice << "\n";
     cout << f(radice);
 
     return 0;
