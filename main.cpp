@@ -37,7 +37,7 @@ float bisezione(float a,float b, float err)
 
 int main() {
     float a, b;
-    double err = 1e-6;  
+    float err = 1e-6;  
     int i;
 	cin >> i; 
     cout << "inserire estremi";
