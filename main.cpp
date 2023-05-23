@@ -27,7 +27,7 @@ double bisezione(double a, double b, double tolleranza) {
 		}
     }
 
-    return (a + b) / 2;  
+    return c;  
 }
 
 int main() {
@@ -48,3 +48,4 @@ int main() {
 
     return 0;
 }
+
