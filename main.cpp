@@ -1,51 +1,48 @@
 #include <iostream>
 #include <cmath>
-
 using namespace std;
 
-double f(double y) {
+double funzione(double y) {
     return y * y * cos(y) + 1;
 }
 
-double bisezione(double a, double b, double tolleranza) {
-    double c;
+double Bisezione(double a, double b) {
+    double risultato = 0;
+    double epsilon = 1e-6; // Tolleranza
 
-    while (fabs(b - a) > tolleranza) {
-        c = (a + b) / 2;  
-
-        if (f(c) == 0)
-        {
-        	return c;
-		}
-        else if (f(c) * f(a) < 0)
-        {
-        	b=c;
-		}
-        else
-        {
-        	a=c;
-		}
+    if (funzione(a) * funzione(b) >= 0) {
+        return risultato;
     }
 
-    return c;  
+    while ((b - a) >= epsilon) {
+        double c = (a + b) / 2; // Punto medio
+
+        if (funzione(c) == 0.0) {
+            risultato = c;
+            break;
+        }
+        else if (funzione(c) * funzione(a) < 0) {
+            b = c;
+        }
+        else {
+            a = c;
+        }
+    }
+
+    risultato = (a + b) / 2;
+    return risultato;
 }
 
 int main() {
     double a, b;
-    double tolleranza = 1e-6;  
+    cout << "Inserire gli estremi";
+    cin >> a >> b;
 
-    cout << "inserire estremi\n";
-    cin >> a;
-    cin >> b;
-	while(f(a)*f(b)>0)
-	{
-		cin >> a;
-        cin >> b;
-	}
-    double radice = bisezione(a, b, tolleranza);
+    double radice = Bisezione(a, b);
+
+    if (radice != 0) {
 	cout.precision(4);
-    cout << radice;
-
+        cout << radice;
+    }
     return 0;
 }
-
