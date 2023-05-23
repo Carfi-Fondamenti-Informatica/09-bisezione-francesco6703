@@ -50,8 +50,7 @@ int main() {
 	}
     float radice = bisezione(a, b, err);
 	cout.precision(4);
-    cout << radice << "\n";
-    cout << f(radice);
+    cout << radice;
 
     return 0;
 }
