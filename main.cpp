@@ -34,13 +34,14 @@ int main() {
     double a, b;
     double tolleranza = 1e-6;  
 
-    cout << "inserire estremi";
+    cout << "inserire estremi\n";
     cin >> a;
     cin >> b;
 	while(f(a)*f(b)>0)
 	{
+		cout << "inserire estremi\n";
 		cin >> a;
-        cin >> b;
+                cin >> b;
 	}
     double radice = bisezione(a, b, tolleranza);
 	cout.precision(4);
