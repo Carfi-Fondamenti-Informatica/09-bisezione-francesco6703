@@ -39,7 +39,6 @@ int main() {
     cin >> b;
 	while(f(a)*f(b)>0)
 	{
-		cout << "inserire estremi\n";
 		cin >> a;
                 cin >> b;
 	}
