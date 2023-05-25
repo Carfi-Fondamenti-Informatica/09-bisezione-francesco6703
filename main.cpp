@@ -10,7 +10,7 @@ double f(double y) {
 double bisezione(double a, double b, double tolleranza) {
     double c;
 
-    while (fabs(b - a) > tolleranza) {
+    while (fabs((b - a)/2) > tolleranza) {
         c = (a + b) / 2;  
 
         if (f(c) == 0)
@@ -48,4 +48,3 @@ int main() {
 
     return 0;
 }
-
