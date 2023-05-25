@@ -43,7 +43,7 @@ int main() {
                 cin >> b;
 	}
     double radice = bisezione(a, b, tolleranza);
-	cout.precision(4);
+    cout.precision(4);
     cout << radice;
 
     return 0;
