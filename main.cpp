@@ -34,7 +34,7 @@ int main() {
     double a, b;
     double tolleranza = 1e-6;  
 
-    cout << "inserire estremi\n";
+    cout << "inserire estremi" << endl;
     cin >> a;
     cin >> b;
 	while(f(a)*f(b)>0)
