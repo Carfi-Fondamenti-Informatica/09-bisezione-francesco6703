@@ -32,7 +32,7 @@ double bisezione(double a, double b, double tolleranza) {
 
 int main() {
     double a, b;
-double radice= (radice*100)/100;
+double radice= (radice*10000)/10000;
 
 
     double tolleranza = 1e-6;  
@@ -47,6 +47,7 @@ double radice= (radice*100)/100;
         cin >> b;
 	}
 radice = bisezione(a, b, tolleranza);
+	cout.precision(4);
     cout << radice;
 
     return 0;
