@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 
-using namespace std; 
+using namespace std;
 
 double f(double y) {
     return y * y * cos(y) + 1;
@@ -32,6 +32,9 @@ double bisezione(double a, double b, double tolleranza) {
 
 int main() {
     double a, b;
+double radice= (radice*10000)/10000;
+
+
     double tolleranza = 1e-6;  
 
     cout << "inserire estremi" << endl;
@@ -39,12 +42,34 @@ int main() {
     cin >> b;
 	while(f(a)*f(b)>0)
 	{
+   cout << "inserire estremi" << endl;
 		cin >> a;
-                cin >> b;
+        cin >> b;
 	}
-    double radice = bisezione(a, b, tolleranza);
-    cout.precision(4);
+radice = bisezione(a, b, tolleranza);
     cout << radice;
 
     return 0;
 }
+
+
+
+/*	do
+	{
+		c = (a + b) / 2;  
+        if (f(c) == 0)
+        {
+        	return c;
+		}
+		else if (f(c)*f(a) < 0)
+        {
+        	b=c;
+		}
+        else
+        {
+        	a=c;
+		}
+		float err=abs((b-a)/2);
+	}while (err >=1e-6);
+	return (a + b) / 2;
+}*/
