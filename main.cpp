@@ -32,7 +32,7 @@ double bisezione(double a, double b, double tolleranza) {
 
 int main() {
     double a, b;
-double radice= (radice*10000)/10000;
+double radice= (radice*100)/100;
 
 
     double tolleranza = 1e-6;  
@@ -51,25 +51,3 @@ radice = bisezione(a, b, tolleranza);
 
     return 0;
 }
-
-
-
-/*	do
-	{
-		c = (a + b) / 2;  
-        if (f(c) == 0)
-        {
-        	return c;
-		}
-		else if (f(c)*f(a) < 0)
-        {
-        	b=c;
-		}
-        else
-        {
-        	a=c;
-		}
-		float err=abs((b-a)/2);
-	}while (err >=1e-6);
-	return (a + b) / 2;
-}*/
